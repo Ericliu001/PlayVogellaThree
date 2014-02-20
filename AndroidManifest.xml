@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.playvogellathree"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.playvogellathree.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.playvogellathree.loader.LoaderPrefActivity"
+            android:label="@string/title_activity_loader_pref" >
+        </activity>
+        <activity
+            android:name="com.example.playvogellathree.threads.ThreadsLifecycleActivity"
+            android:label="@string/title_activity_threads_lifecycle" >
+        </activity>
+
+        <service
+            android:name="com.example.playvogellathree.service.DownloadService"
+             >
+        </service>
+
+        <activity
+            android:name="com.example.playvogellathree.service.ServiceCommunicationActivity"
+            android:label="@string/title_activity_service_communication" >
+        </activity>
+
+        <service
+            android:name="com.example.playvogellathree.service.LocalWordService"
+            android:icon="@drawable/ic_launcher" >
+        </service>
+
+        <receiver android:name="com.example.playvogellathree.MyScheduleReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.example.playvogellathree.MyStartServiceReceiver" >
+        </receiver>
+
+        <activity
+            android:name="com.example.playvogellathree.service.BoundServiceActivity"
+            android:label="@string/title_activity_bound_service" >
+        </activity>
+    </application>
+
+</manifest>
